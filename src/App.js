@@ -13,6 +13,7 @@ class App extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleLogin = this.handleLogin.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
   }
 
   componentDidMount() {
@@ -57,6 +58,21 @@ class App extends Component {
     e.preventDefault();
   }
 
+  handleLogout(e) {
+    fetch('/logout').then(res => res.json()).then((result) => {
+      if (!result.loggedin) {
+        this.setState({
+          username: '',
+          loggedin: false,
+          games_played: null,
+          games_won: null
+        })
+      }
+    },
+      (error) => { console.error(error) })
+    e.preventDefault();
+  }
+
   updateUser = (games_played, games_won) => {
     this.setState({
       games_played: games_played,
@@ -64,6 +80,7 @@ class App extends Component {
     })
 
   }
+
 
 
   render() {
@@ -101,6 +118,7 @@ class App extends Component {
               <div className='username'> Welcome {this.state.username}</div>
               <div className='games_played'>Games Played: {this.state.games_played}</div>
               <div className='games_won'>Games Won: {this.state.games_won}</div>
+              <button className='logout' onClick={this.handleLogout}>Log Out</button>
             </div>
           </div>
           <Board parentUpdateUser={this.updateUser} />

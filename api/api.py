@@ -57,6 +57,13 @@ def login_get():
                 }
 
 
+@app.route('/logout')
+def logout():
+    session.clear()
+
+    return {'loggedin': False}
+
+
 @app.route('/update-user', methods=['POST'])
 def update_user():
     '''update User and Game tables with current user win'''
