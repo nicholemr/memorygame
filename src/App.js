@@ -15,13 +15,30 @@ class App extends Component {
     this.handleLogin = this.handleLogin.bind(this)
   }
 
+  componentDidMount() {
+    fetch('/login', {
+      method: 'GET',
+    }
+    ).then(res => res.json()
+    ).then(result => {
+      if (result) {
+        this.setState({
+          username: result.username,
+          loggedin: result.loggedin,
+          games_played: result.games_played,
+          games_won: result.games_won
+        })
+      }
+    }, (error) => { console.error(error) })
+
+  }
+
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value }
     )
   }
 
   handleLogin(e) {
-    console.log('submitting')
     const formData = { username: this.state.username }
     fetch('/login', {
       method: 'POST',
@@ -38,6 +55,14 @@ class App extends Component {
 
     }, (error) => { console.error(error) })
     e.preventDefault();
+  }
+
+  updateUser = (games_played, games_won) => {
+    this.setState({
+      games_played: games_played,
+      games_won: games_won
+    })
+
   }
 
 
@@ -63,7 +88,7 @@ class App extends Component {
               <button>Submit</button>
             </form>
           </div>
-          <Board />
+          <Board username={this.state.username} />
         </div>
       );
     }
@@ -78,7 +103,7 @@ class App extends Component {
               <div className='games_won'>Games Won: {this.state.games_won}</div>
             </div>
           </div>
-          <Board />
+          <Board parentUpdateUser={this.updateUser} />
         </div>
       );
     }

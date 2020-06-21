@@ -29,9 +29,7 @@ class Board extends Component {
         for (let i = 0; i < 16; i++) {
             memkey[i] = ids[i]
         }
-
         this.setState({ memoryKey: memkey })
-
     }
 
     swapsCount = (id) => {
@@ -65,10 +63,59 @@ class Board extends Component {
                 })
             }
 
+            if (this.state.matched.length === 16) {
+                this.gameWon()
+            }
+
+        }
+    }
+
+    gameWon = () => {
+        alert('game won!')
+
+        fetch('/update-user', {
+            method: 'POST',
+        }
+        ).then(res => res.json()
+        ).then(result => {
+
+            this.props.parentUpdateUser(result.games_played, result.games_won)
+
+
+        }, (error) => { console.error(error) })
+
+        this.resetBoard()
+    }
+
+
+    resetBoard = () => {
+        function shuffle(a) {
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
         }
 
+        var ids = ['1', '2', '3', '4', '5', '6', '7', '8', '1', '2', '3', '4', '5', '6', '7', '8'];
 
+        shuffle(ids)
+        let memkey = {}
+        for (let i = 0; i < 16; i++) {
+            memkey[i] = ids[i]
+        }
+        this.setState({
+            memoryKey: memkey,
+            turns: 0,
+            turn_cards: [],
+            last_card_id: null,
+            matched: [],
+            turn_swaps: 0
+        })
+
+        this.displayDeck()
     }
+
 
     displayDeck = () => {
         let deckDisplay = [];
