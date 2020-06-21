@@ -1,3 +1,23 @@
+
+
+# Memory Card Game
+
+![game](https://github.com/nicholemr/memorygame/readmefiles/memory.gif)
+
+## Installation
+
+$ git clone https://github.com/nicholemr/memorygame.git
+$ virtualenv env
+$ source env/bin/activate
+$ pip install -r requirements.txt
+$ createdb memory
+$ python3 api/model.py
+$ fask run
+
+
+
+### React Installation Instructions:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

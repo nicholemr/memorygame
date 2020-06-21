@@ -3,8 +3,15 @@
   display: grid;
   grid-template-rows: 100px auto;
   justify-items: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(59, 85, 14);
+  font-size: 20px;
 }
 
+.title{
+  font-weight: bold;
+  font-size: 30px;
+}
 .login{
   background-color: aqua;
   width: 1000px;
@@ -12,7 +19,7 @@
 }
 
 .loggedin{
-  background-color: chocolate;
+  background-color: rgb(246, 253, 151);
   width: 1000px;
   display: grid;
   grid-template-rows: 40px auto;
@@ -52,7 +59,8 @@
 }
 
 .card{
-  background-color: blueviolet;
+  background-color: rgba(240, 232, 247, 0.685);
+  border-radius: 10px;
   height: 80px;
   width: 80px;
   display: grid;
@@ -63,32 +71,56 @@
 
 [class = '1'] {
   background-color: darkorange;
+  border-radius: 10px;
+  width: 80px;
+  text-align: center;
 }
 
 [class = '2'] {
   background-color: aquamarine;
+  border-radius: 10px;
+  width: 80px;
+  text-align: center;
 }
 
 [class = '3']{
   background-color: blue;
+  border-radius: 10px;
+  width: 80px;
+  text-align: center;
 }
 
 [class = '4']{
 background-color: brown;
+border-radius: 10px;
+width: 80px;
+text-align: center;
 }
 
 [class = '5']{
  background-color: cadetblue; 
+ border-radius: 10px;
+ width: 80px;
+ text-align: center;
 }
 
 [class = '6']{
   background-color: darkgreen;
+  border-radius: 10px;
+  width: 80px;
+  text-align: center;
 }
 
 [class = '7']{
   background-color: magenta;
+  border-radius: 10px;
+  width: 80px;
+  text-align: center;
 }
 
 [class = '8']{
   background-color: limegreen;
+  border-radius: 10px;
+  width: 80px;
+  text-align: center;
 }

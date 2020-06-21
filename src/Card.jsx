@@ -40,9 +40,6 @@ class Card extends Component {
                 <div className='card'
                     onClick={e => this.handleClick(this.props.id, e)}
                 >
-                    <div >
-                        {this.props.id}
-                    </div>
                 </div>
             );
         }
@@ -51,7 +48,7 @@ class Card extends Component {
                 <div className='card'
                 >
                     <div className={this.props.memkey[this.props.id]}>
-                        {this.props.memkey[this.props.id]}
+                        {/* {this.props.memkey[this.props.id]} */}
                     </div>
 
                 </div>
