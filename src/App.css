@@ -1,38 +1,89 @@
 .App {
+  background-color: gray;
+  display: grid;
+  grid-template-rows: 70px auto;
+  justify-items: center;
+}
+
+.login{
+  background-color: aqua;
+  width: 1000px;
+  
+}
+
+.loggedin{
+  background-color: chocolate;
+  width: 1000px;
+  display: grid;
+  grid-template-rows: 40px auto;
+}
+.title{
+  padding: 3px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title2{
+  padding: 3px;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.userinfo{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.board{
+  background-color: darkseagreen;
+  width: 1000px;
+  height: 1000px;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4,100px);
+  column-gap: 5px;
+  row-gap: 5px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.card{
+  background-color: blueviolet;
+  height: 80px;
+  width: 80px;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-self: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+[class = '1'] {
+  background-color: darkorange;
+}
+
+[class = '2'] {
+  background-color: aquamarine;
+}
+
+[class = '3']{
+  background-color: blue;
+}
+
+[class = '4']{
+background-color: brown;
+}
+
+[class = '5']{
+ background-color: cadetblue; 
+}
+
+[class = '6']{
+  background-color: darkgreen;
+}
+
+[class = '7']{
+  background-color: magenta;
+}
+
+[class = '8']{
+  background-color: limegreen;
 }

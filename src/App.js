@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
 import Board from './Board'
@@ -50,32 +49,34 @@ class App extends Component {
             <p>The current time is {currentTime}.</p>
           </header> */}
           <div className='login'>
-            <h3>username: </h3>
-            <form onSubmit={this.handleLogin}>
+            <div className='title'>Memory Game</div>
+            <form className='form' onSubmit={this.handleLogin}>
               <label htmlFor='username'>
                 <input id='username'
                   type='text'
                   name='username'
                   value={this.state.username}
-
                   placeholder='Enter Username'
                   onChange={this.handleChange}
                 />
               </label>
               <button>Submit</button>
             </form>
-            <Board />
           </div>
+          <Board />
         </div>
       );
     }
     else {
       return (
         <div className='App'>
-          <div className='username'>
-            <div> Welcome {this.state.username}</div>
-            <div>Games Played: {this.state.games_played}</div>
-            <div>Games Won: {this.state.games_won}</div>
+          <div className='loggedin'>
+            <div className='title2'>Memory Game</div>
+            <div className='userinfo'>
+              <div className='username'> Welcome {this.state.username}</div>
+              <div className='games_played'>Games Played: {this.state.games_played}</div>
+              <div className='games_won'>Games Won: {this.state.games_won}</div>
+            </div>
           </div>
           <Board />
         </div>
