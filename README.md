@@ -2,7 +2,7 @@
 
 # Memory Card Game
 
-![game](https://github.com/nicholemr/memorygame/readmefiles/memory.gif)
+![game](https://github.com/nicholemr/memorygame/READme/memory.gif)
 
 ## Installation
 
