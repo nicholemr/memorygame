@@ -20,7 +20,7 @@ class Card extends Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.turns !== prevProps.turns) {
-            if (this.props.matchedCards.includes(this.props.id)) {
+            if (this.props.matchedCards.includes(this.props.id) || this.props.turn_cards.includes(this.props.id)) {
                 this.setState({
                     clicked: true
                 })

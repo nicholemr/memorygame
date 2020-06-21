@@ -7,6 +7,7 @@ class Board extends Component {
         this.state = {
             memoryKey: {},
             turns: 0,
+            turn_cards: [],
             last_card_id: null,
             matched: [],
             turn_swaps: 0
@@ -34,28 +35,33 @@ class Board extends Component {
     }
 
     swapsCount = (id) => {
-        if (this.state.turn_swaps === 0) {
+        if (this.state.turn_swaps === 2 || this.state.turn_swaps === 0) {
             this.setState({
-                turn_swaps: this.state.turn_swaps + 1,
-                last_card_id: id
+                turn_swaps: 1,
+                last_card_id: id,
+                turn_cards: [id],
+                turns: this.state.turns + 1,
             })
         }
         else {
+            let turn_cards = this.state.turn_cards
+            turn_cards.push(id)
             if (this.state.memoryKey[id] === this.state.memoryKey[this.state.last_card_id]) {
                 let matched = this.state.matched
                 matched.push(id, this.state.last_card_id)
                 this.setState({
                     matched: matched,
                     last_card_id: null,
-                    turn_swaps: 0,
-                    turns: this.state.turns + 1
+                    turn_swaps: 2,
+
+                    turn_cards: turn_cards
                 })
             }
             else {
                 this.setState({
                     last_card_id: null,
-                    turn_swaps: 0,
-                    turns: this.state.turns + 1
+                    turn_swaps: 2,
+                    turn_cards: turn_cards
                 })
             }
 
@@ -71,8 +77,9 @@ class Board extends Component {
                 <Card id={i} key={i} memkey={this.state.memoryKey}
                     parentSwapsCount={this.swapsCount}
                     matchedCards={this.state.matched}
-                    totalSwaps={this.state.turn_swaps}
-                    turns={this.state.turns} />
+                    turn_swaps={this.state.turn_swaps}
+                    turns={this.state.turns}
+                    turn_cards={this.state.turn_cards} />
             )
         }
         return deckDisplay;
