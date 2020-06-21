@@ -4,8 +4,21 @@
 
 ![game](https://github.com/nicholemr/memorygame/blob/master/READme/memory.gif)
 
-## Installation
+Single-page ReactJS game built in a 24 hour sprint. 
 
+## Tech Stack
+- ReactJS
+- Python
+- JavaScript
+- Flask
+- PostgreSQL
+- SQLAlchemy
+- HTML
+- CSS Grid
+
+
+## Installation
+```
 $ git clone https://github.com/nicholemr/memorygame.git
 $ virtualenv env
 $ source env/bin/activate
@@ -13,7 +26,7 @@ $ pip install -r requirements.txt
 $ createdb memory
 $ python3 api/model.py
 $ fask run
-
+```
 
 
 ### React Installation Instructions:
