@@ -1,6 +1,6 @@
 
 
-# Memory Card Game
+# Memory Game
 
 ![game](https://github.com/nicholemr/memorygame/blob/master/READme/memory.gif)
 
